@@ -47,7 +47,9 @@ export default function Settings() {
 
                 <View className="mt-4 mb-10">
                     <SectionTitle title="Support" />
-                    <SettingItem icon="help-circle-outline" label="Help Center" />
+                    <Link href="/settings/help" asChild>
+                        <SettingItem icon="help-circle-outline" label="Help Center" />
+                    </Link>
                     <SettingItem icon="information-circle-outline" label="About App" value="v1.0.0" />
                 </View>
             </ScrollView>
