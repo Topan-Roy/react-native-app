@@ -1,24 +1,18 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import { Stack } from "expo-router";
+import "./global.css";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="details/[id]" options={{ title: "Details" }} />
+      <Stack.Screen name="settings/index" options={{ title: "Settings" }} />
+      <Stack.Screen name="settings/edit" options={{ title: "Edit Profile" }} />
+      <Stack.Screen name="settings/password" options={{ title: "Change Password" }} />
+      <Stack.Screen name="settings/privacy" options={{ title: "Privacy Policy" }} />
+      <Stack.Screen name="wishlist/index" options={{ title: "Wishlist" }} />
+      <Stack.Screen name="notifications/index" options={{ title: "Notifications" }} />
+      <Stack.Screen name="help/index" options={{ title: "Help & Support" }} />
+    </Stack>
   );
 }
