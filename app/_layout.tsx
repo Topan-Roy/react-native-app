@@ -15,6 +15,9 @@ export default function RootLayout() {
       <Stack.Screen name="wishlist/index" options={{ title: "Wishlist" }} />
       <Stack.Screen name="notifications/index" options={{ title: "Notifications" }} />
       <Stack.Screen name="help/index" options={{ title: "Help & Support" }} />
+      <Stack.Screen name="help/chat" options={{ title: "Live Chat" }} />
+      <Stack.Screen name="help/email" options={{ title: "Email Support" }} />
+      <Stack.Screen name="help/phone" options={{ title: "Phone Support" }} />
     </Stack>
   );
 }
