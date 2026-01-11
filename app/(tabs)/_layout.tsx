@@ -5,7 +5,7 @@ export default function TabLayout() {
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: "#3b82f6", 
+                tabBarActiveTintColor: "#3b82f6",
                 headerShown: false,
             }}
         >
@@ -24,6 +24,15 @@ export default function TabLayout() {
                     title: "Search",
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "search" : "search-outline"} size={24} color={color} />
+                    ),
+                }}
+            />
+            <Tabs.Screen
+                name="cart"
+                options={{
+                    title: "Cart",
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons name={focused ? "cart" : "cart-outline"} size={24} color={color} />
                     ),
                 }}
             />
