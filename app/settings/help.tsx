@@ -1,6 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, Stack } from "expo-router";
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 const HELP_TOPICS = [
   { id: "track-order", title: "Track your order", icon: "cube-outline" },
@@ -15,15 +21,10 @@ export default function HelpCenter() {
       <Stack.Screen options={{ title: "Help Center", headerShown: true }} />
 
       <ScrollView className="px-6 pt-6">
-        {/* Header */}
         <View className="mb-8">
           <Text className="text-2xl font-bold text-gray-900">Hi 👋</Text>
-          <Text className="text-gray-500 mt-1">
-            How can we help you today?
-          </Text>
+          <Text className="text-gray-500 mt-1">How can we help you today?</Text>
         </View>
-
-        {/* Search */}
         <View className="bg-white border border-gray-200 rounded-xl px-4 py-3 flex-row items-center mb-8">
           <Ionicons name="search-outline" size={20} color="#9ca3af" />
           <TextInput
@@ -33,18 +34,16 @@ export default function HelpCenter() {
           />
         </View>
 
-        {/* Topics */}
         <Text className="text-gray-900 font-semibold text-lg mb-4">
           Help Topics
         </Text>
 
         <View className="space-y-3">
-          {HELP_TOPICS.map(item => (
+          {HELP_TOPICS.map((item) => (
             <HelpCard key={item.id} {...item} />
           ))}
         </View>
 
-        {/* Support Box */}
         <View className="mt-12 bg-blue-600 p-6 rounded-2xl">
           <Text className="text-white font-bold text-lg mb-2">
             Need more help?
@@ -84,9 +83,7 @@ function HelpCard({
           <Ionicons name={icon} size={20} color="#2563eb" />
         </View>
 
-        <Text className="flex-1 ml-4 text-gray-800 font-medium">
-          {title}
-        </Text>
+        <Text className="flex-1 ml-4 text-gray-800 font-medium">{title}</Text>
 
         <Ionicons name="chevron-forward" size={18} color="#9ca3af" />
       </TouchableOpacity>
