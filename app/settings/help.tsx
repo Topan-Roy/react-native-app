@@ -17,10 +17,10 @@ const HELP_TOPICS = [
 
 export default function HelpCenter() {
   return (
-    <View className="flex-1 bg-gray-50">
-      <Stack.Screen options={{ title: "Help Center", headerShown: true }} />
+    <View className="flex-1 bg-gray-50 mt-10">
+      <Stack.Screen options={{ title: "Help Center", headerShown: false }} />
 
-      <ScrollView className="px-6 pt-6">
+      <ScrollView contentContainerClassName="px-6 pt-6">
         <View className="mb-8">
           <Text className="text-2xl font-bold text-gray-900">Hi 👋</Text>
           <Text className="text-gray-500 mt-1">How can we help you today?</Text>
@@ -33,14 +33,25 @@ export default function HelpCenter() {
             placeholderTextColor="#9ca3af"
           />
         </View>
-
         <Text className="text-gray-900 font-semibold text-lg mb-4">
           Help Topics
         </Text>
 
-        <View className="space-y-3">
+        <View>
           {HELP_TOPICS.map((item) => (
-            <HelpCard key={item.id} {...item} />
+            <Link key={item.id} href={`/settings/help/${item.id}`} asChild>
+              <TouchableOpacity className="flex-row items-center bg-white p-4 rounded-xl border border-gray-200 mb-3">
+                <View className="w-10 h-10 rounded-full bg-blue-50 items-center justify-center">
+                  <Ionicons name={item.icon} size={20} color="#2563eb" />
+                </View>
+
+                <Text className="flex-1 ml-4 text-gray-800 font-medium">
+                  {item.title}
+                </Text>
+
+                <Ionicons name="chevron-forward" size={18} color="#9ca3af" />
+              </TouchableOpacity>
+            </Link>
           ))}
         </View>
 
@@ -59,34 +70,11 @@ export default function HelpCenter() {
           </TouchableOpacity>
         </View>
 
+        {/* Footer */}
         <Text className="text-center text-gray-400 text-xs my-8">
           Help Center v1.2
         </Text>
       </ScrollView>
     </View>
-  );
-}
-
-function HelpCard({
-  id,
-  title,
-  icon,
-}: {
-  id: string;
-  title: string;
-  icon: any;
-}) {
-  return (
-    <Link href={`/settings/help/${id}`} asChild>
-      <TouchableOpacity className="flex-row items-center bg-white p-4 rounded-xl border border-gray-200">
-        <View className="w-10 h-10 rounded-full bg-blue-50 items-center justify-center">
-          <Ionicons name={icon} size={20} color="#2563eb" />
-        </View>
-
-        <Text className="flex-1 ml-4 text-gray-800 font-medium">{title}</Text>
-
-        <Ionicons name="chevron-forward" size={18} color="#9ca3af" />
-      </TouchableOpacity>
-    </Link>
   );
 }
